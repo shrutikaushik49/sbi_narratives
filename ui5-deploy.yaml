@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: com.jlr.s2p.sbiandretro
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: op-jlr-s4hcore-dev-r1d-bas-http
+          url: http://s4hcore-dev-r1d.jlrint.com:44380
+        app:
+          name: ZS2P_SBINRETRO
+          description: SBI and Retro
+          package: ZIERP_DEV_S2P
+          transport: R1DK907651
+        exclude:
+          - /test/

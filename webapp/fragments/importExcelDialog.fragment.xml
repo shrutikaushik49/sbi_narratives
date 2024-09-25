@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns:m="sap.m">
+    <m:Dialog class="sapUiContentPadding" title="{i18n>ImportExcel}" titleAlignment="Center">
+        <m:content>
+            <Table rows="{localModel>/items}" selectionMode="None">
+                <extension>
+                    <m:OverflowToolbar>
+                        <m:content>
+                            <m:Title text="{i18n>flpTitle} ({= ${localModel>/items}.length})" level="H2" />
+                            <m:ToolbarSpacer/>
+                            <m:Button icon="sap-icon://download-from-cloud" text="{i18n>DownloadTemplate}" press="onExportTemplate" />
+                            <u:FileUploader buttonText="{i18n>ImportExcel}" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx" icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload" />
+                        </m:content>
+                    </m:OverflowToolbar>
+                </extension>
+                <columns>
+                    <Column width="10rem">
+                        <m:Label text="{i18n>CompanyCode}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>bukrs}"/>
+                        </template>
+                    </Column>
+                     <Column width="10rem">
+                        <m:Label text="{i18n>CountryRegionKey}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>land1}"/>
+                        </template>
+                    </Column>
+                    
+                     <Column width="10rem">
+                        <m:Label text="{i18n>TaxCode}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>mwskz}"/>
+                        </template>
+                    </Column>
+                    <Column width="10rem">
+                        <m:Label text="{i18n>Header}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zheader}"/>
+                        </template>
+                    </Column>
+                    <Column width="10rem">
+                        <m:Label text="{i18n>HeaderSBCredit}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zheader_sbc}"/>
+                        </template>
+                    </Column>
+                    <Column width="10rem">
+                        <m:Label text="{i18n>HeaderDebit}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zheader_deb}"/>
+                        </template>
+                    </Column>
+                    <Column width="10rem">
+                        <m:Label text="{i18n>HeaderRetroInvoice}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zheader_retin}"/>
+                        </template>
+                    </Column>
+                    <Column width="10rem">
+                        <m:Label text="{i18n>HeaderRetroCredit}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zheader_retcr}"/>
+                        </template>
+                    </Column>
+                    <Column width="10rem">
+                        <m:Label text="{i18n>TaxDescription}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zdescription}"/>
+                        </template>
+                    </Column>
+                       <Column width="10rem">
+                        <m:Label text="{i18n>DirectiveNarrativeen}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zdirect_narr_en}"/>
+                        </template>
+                    </Column>
+                       <Column width="10rem">
+                        <m:Label text="{i18n>DirectiveNarrativeen}" wrapping="true"/>
+                        <template>
+                            <m:Text text="{localModel>zdirect_narr_lc}"/>
+                        </template>
+                    </Column>
+
+                    
+                   
+                </columns>
+            </Table>
+        </m:content>
+        <m:buttons>
+            <m:Button text="{i18n>Submit}" type="Transparent" press="onSubmitPress" />
+            <m:Button text="{i18n>Cancel}" type="Emphasized" press="onCancelPress" />
+        </m:buttons>
+    </m:Dialog>
+</core:FragmentDefinition>
